@@ -1,0 +1,14 @@
+{
+  "name": "upe_challenge",
+  "version": "1.0.0",
+  "main": "challenge.js",
+  "scripts": {
+    "start": "node challenge2.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "node-fetch": "^2.3.0"
+  }
+}
