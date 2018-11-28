@@ -5,7 +5,7 @@ var maze = []
 let first = true
 let totalLevels = 100
 let data = null
-let count = 0
+//let count = 0
 
 run()
 
@@ -14,7 +14,7 @@ async function run(){
     while(level <= totalLevels){
         try {
             await start(token.token, null, 0, 0)
-            console.log(`Finshed level ${level}!`)
+            console.log(`Finished level ${level}!`)
             solved = false
             first = true
         } catch(err){
@@ -26,8 +26,8 @@ async function run(){
 }
 
 async function getToken(){
-    count++
-    console.log("T", count)
+    //count++
+    //console.log("T", count)
     return await (await fetch("http://ec2-34-216-8-43.us-west-2.compute.amazonaws.com/session", {
         method: "POST",
         mode: "cors",
@@ -41,8 +41,8 @@ async function getToken(){
 async function start(token, dir, curX, curY){
     if(first){
         data = await (await fetch(`http://ec2-34-216-8-43.us-west-2.compute.amazonaws.com/game?token=${token}`)).json()
-        count++
-        console.log("G", count)
+        //count++
+        //console.log("G", count)
         if(data.status === "NONE")
             throw new Error("Bad Token")
         else if(data.status == "FINISHED")
@@ -91,8 +91,8 @@ async function start(token, dir, curX, curY){
                 },
                 body: JSON.stringify({"action": oppDir})
             })).json()
-            count++
-            console.log("P", count)
+            //count++
+            //console.log("P", count)
         }
     }
 }
@@ -106,8 +106,8 @@ async function move(token, dir, curX, curY){
         },
         body: JSON.stringify({"action": dir})
     })).json()
-    count++
-    console.log("P", count)
+    //count++
+    //console.log("P", count)
     if(res.result === "SUCCESS"){
         await start(token, dir, curX, curY)
     } else if(res.result === "OUT_OF_BOUNDS"){
