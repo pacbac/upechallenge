@@ -49,7 +49,7 @@ async function start(token, dir, curX, curY){
             throw new Error("Mazes already solved")
         first = false
         totalLevels = data.total_levels
-        level = data.levels_completed + 1
+        level = data.levels_completed
         for(let i = 0; i < data.maze_size[0]; i++){
             maze[i] = []
             for(let j = 0; j < data.maze_size[1]; j++){
